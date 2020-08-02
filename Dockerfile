@@ -1,5 +1,5 @@
-FROM node:alpine
-RUN apk add raspberrypi
+FROM node:lts-stretch-slim
+# RUN apk add raspberrypi
 ENTRYPOINT ["node", "server"]
 WORKDIR /app
 COPY ./package*.json ./
