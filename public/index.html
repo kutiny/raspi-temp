@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspi Core</title>
+</head>
+<body>
+    <script src="./socket.io.js"></script>
+    <script>
+        const socket = io()
+        socket.emit('renew')
+
+        socket.on('data', data => {
+            console.log(data)
+        })
+    </script>
+</body>
+</html>
