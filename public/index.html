@@ -4,15 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raspi Core</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+    <div class="mainCard">
+        <h1 class="mainTitle">Raspi Core by Alexlndn</h1>
+        <div class="group">
+            <div class="card">
+                <h1>CPU</h1>
+                <h2 id="cpu">ERR</h2>
+            </div>
+            <div class="card">
+                <h1>GPU</h1>
+                <h2 id="gpu">ERR</h2>
+            </div>
+        </div>
+    </div>
+
     <script src="./socket.io.js"></script>
     <script>
         const socket = io()
-        socket.emit('renew')
+        const cpu = document.querySelector('#cpu')
+        const gpu = document.querySelector('#gpu')
+        
+        setInterval(() => {
+            socket.emit('renew')
+        }, 900)
 
         socket.on('data', data => {
-            console.log(data)
+            cpu.textContent = data.cpu
+            gpu.textContent = data.gpu
         })
     </script>
 </body>

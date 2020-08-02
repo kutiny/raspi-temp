@@ -8,13 +8,12 @@ const { execFileSync } = require('child_process')
 
 io.on('connection', client => {
     client.on('renew', data => {
-        const a = execFileSync(`./scripts/getTemp.sh`)
-        console.log(JSON.parse(a.toString()))
+        const a = execFileSync(`./scripts/getTemp.sh`, { stdio: 'pipe' })
         client.emit('data', JSON.parse(a.toString()))
     })
 
     client.on('disconnect', () => {
-        console.log("Client disconnected.")
+        // console.log("Client disconnected.")
     })
 })
 
