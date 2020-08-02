@@ -14,27 +14,30 @@
                 <h1>CPU</h1>
                 <h2 id="cpu">ERR</h2>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                 <h1>GPU</h1>
                 <h2 id="gpu">ERR</h2>
-            </div>
+            </div> -->
         </div>
     </div>
 
     <script src="./socket.io.js"></script>
     <script>
-        const socket = io()
-        const cpu = document.querySelector('#cpu')
-        const gpu = document.querySelector('#gpu')
-        
-        setInterval(() => {
-            socket.emit('renew')
-        }, 900)
+        function init() {
+            const socket = io()
+            const cpu = document.querySelector('#cpu')
+            // const gpu = document.querySelector('#gpu')
 
-        socket.on('data', data => {
-            cpu.textContent = data.cpu
-            gpu.textContent = data.gpu
-        })
+            setInterval(() => {
+                socket.emit('renew')
+            }, 900)
+
+            socket.on('data', data => {
+                cpu.textContent = data.cpu
+                // gpu.textContent = data.gpu
+            })
+        }
+        init()
     </script>
 </body>
 </html>

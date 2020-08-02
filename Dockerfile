@@ -1,4 +1,4 @@
-FROM node:lts-stretch-slim
+FROM node:alpine
 # RUN apk add raspberrypi
 ENTRYPOINT ["node", "server"]
 WORKDIR /app
