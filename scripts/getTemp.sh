@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 cpuTemp=`cat /sys/class/thermal/thermal_zone0/temp`
 cpuTemp="$((cpuTemp / 1000)).${cpuTemp:2:1} °C"
