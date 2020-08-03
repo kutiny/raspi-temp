@@ -4,4 +4,4 @@ WORKDIR /app
 COPY ./package*.json ./
 RUN npm install --only=prod
 COPY . .
-RUN chmod -R 777 ./scripts/*
+RUN chmod 777 ./scripts/getTemp.sh
