@@ -3,5 +3,5 @@ ENTRYPOINT ["node", "server"]
 WORKDIR /app
 COPY ./package*.json ./
 RUN npm install --only=prod
+ADD VERSION .
 COPY . .
-RUN chmod 777 ./scripts/getTemp.sh
