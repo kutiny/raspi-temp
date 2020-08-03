@@ -7,37 +7,25 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div class="mainCard">
-        <h1 class="mainTitle">Raspi Core by Alexlndn</h1>
-        <div class="group">
-            <div class="card">
-                <h1>CPU</h1>
-                <h2 id="cpu">ERR</h2>
+    <div class="main">
+        <div class="mainCard">
+            <div class="group">
+                <div class="card">
+                    <p class="prop">CPU:</p>
+                    <p id="cpu" class="value">~ °C</p>
+                </div>
             </div>
-            <!-- <div class="card">
-                <h1>GPU</h1>
-                <h2 id="gpu">ERR</h2>
-            </div> -->
         </div>
     </div>
 
+    <footer class="footer">
+        <p>
+            Creado por
+            <a class="link" href="https://alexaguirre.com.ar" target="_blank">Alexlndn</a>
+        </p>
+    </footer>
+
     <script src="./socket.io.js"></script>
-    <script>
-        function init() {
-            const socket = io()
-            const cpu = document.querySelector('#cpu')
-            // const gpu = document.querySelector('#gpu')
-
-            setInterval(() => {
-                socket.emit('renew')
-            }, 900)
-
-            socket.on('data', data => {
-                cpu.textContent = data.cpu
-                // gpu.textContent = data.gpu
-            })
-        }
-        init()
-    </script>
+    <script src="./init.js" defer></script>
 </body>
 </html>

@@ -70,24 +70,28 @@
 }
 
 :root {
-    --background: #34495e;
+    --main: #BC1142;
+    --main-dark: #4D0619;
+    --background: var(--main);
     --fore: #F1F1F1;
+    --border: #DFE0E0;
 }
 
 body {
+    background: radial-gradient(at center, var(--main), var(--main-dark));
+    color: var(--fore);
+    display: flex;
+    flex-direction: column;
+    font-family: Ubuntu;
+    font-style: normal;
+    height: 100vh;
+}
+
+.main {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    background: var(--background);
-    color: var(--fore);
-    font-family: Ubuntu;
-    font-style: normal;
-}
-
-.mainTitle {
-    margin-bottom: 1rem;
+    height: 100%;
 }
 
 .group {
@@ -98,11 +102,30 @@ body {
 }
 
 .card {
-    background: linear-gradient(145deg, #2f4255, #384e65);
-    border-radius: 20px;
-    box-shadow:  12px 12px 47px #2c3e50, 
-                -12px -12px 47px #3c546c;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(10, 10, 10, 0.5);
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
     padding: 1rem;
     text-align: center;
     width: 100%;
+    min-width: 240px;
+}
+
+.prop, .value {
+    font-size: 2rem;
+}
+
+.footer {
+    background: var(--main-dark);
+    margin-top: auto;
+    padding: 1rem;
+    text-align: center;
+}
+
+.link {
+    color: var(--fore);
 }
