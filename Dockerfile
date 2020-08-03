@@ -1,4 +1,4 @@
-FROM node:lts-stretch-slim
+FROM node:alpine
 ENTRYPOINT ["node", "server"]
 WORKDIR /app
 COPY ./package*.json ./
