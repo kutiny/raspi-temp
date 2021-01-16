@@ -9,12 +9,12 @@ const { execSync } = require('child_process')
 io.on('connection', client => {
     client.on('renew', data => {
         if(process.platform === 'win32') {
-            client.emit('data', {cpu: '10 °C'})
+            client.emit('data', {cpu: 10})
         }else {
             const a = execSync(`
             cpuTemp=$(cat /sys/class/thermal/thermal_zone0/temp)
             cpuTemp2=$(echo $cpuTemp | cut -c3-4)
-            cpuTemp="$((cpuTemp / 1000)).$cpuTemp2 °C"
+            cpuTemp="$((cpuTemp / 1000)).$cpuTemp2"
             echo cpu:$cpuTemp
             `)
             const parsed = a.toString().split(':')

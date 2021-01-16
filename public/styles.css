@@ -78,7 +78,8 @@
 }
 
 body {
-    background: radial-gradient(at center, var(--main), var(--main-dark));
+    background-image: url('/background.svg');
+    background-size: cover;
     color: var(--fore);
     display: flex;
     flex-direction: column;
@@ -103,10 +104,14 @@ body {
 
 .card {
     align-items: center;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(4px) saturate(120%);
     border: 1px solid var(--border);
     border-radius: 12px;
     box-shadow: 0 0 12px rgba(10, 10, 10, 0.5);
-    display: flex;
+    color: #212121;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     justify-content: center;
     padding: 1rem;
@@ -116,7 +121,7 @@ body {
 }
 
 .prop, .value {
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .footer {
