@@ -8,8 +8,8 @@ function init() {
     }, 900)
 
     socket.on('data', data => {
-        cpuC.textContent = data.cpu;
-        cpuF.textContent = parseInt(data.cpu, 10) * 1.8 + 32;
+        cpuC.textContent = parseFloat(data.cpu).toFixed(2);
+        cpuF.textContent = (parseFloat(data.cpu) * 1.8 + 32).toFixed(2);
     })
 }
 init()
